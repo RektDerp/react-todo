@@ -52,6 +52,7 @@ export const ToDo = () => {
     const index = todos.findIndex(todo => todo.id === id);
 
     if (index !== -1 && delTask(id) === 'ok') {
+      if(todos[index].checked)setCheckCount(checkCount - 1);
       todos.splice(index, 1);
       setTodos([...todos]);
     }

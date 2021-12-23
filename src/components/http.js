@@ -38,7 +38,7 @@ try{
 	var temp = JSON.parse(http("https://api.todoist.com/rest/v1/tasks", t, null, "GET"));
 	var arr = new Array(temp.length);
 	for(var i = 0; i < temp.length; i++){
-		arr[i] = new item(temp[i].id, temp[i].content, temp[i].completed);
+		arr[i] = new item(temp[i].id, temp[i].content, temp[i].completed, temp[i].description);
 	}
 }
 catch(e){
