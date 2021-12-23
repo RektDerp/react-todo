@@ -6,15 +6,19 @@ export const ToDoForm = (props) => {
   const [form] = Form.useForm();
   const onFinish = (values) => {
     if (onSubmit) {
-      onSubmit(values.name);
+      onSubmit(values);
     }
     form.resetFields();
   }
 
+
   return (
     <Form className="todo-form" form={form} layout={'inline'} onFinish={onFinish}>
-      <Form.Item name="name" className="todo-form-input">
+      <Form.Item name="title" className="todo-form-input">
         <Input placeholder={'New todo'} />
+      </Form.Item>
+      <Form.Item name="description">
+        <Input placeholder={'Description'}/>
       </Form.Item>
       <Form.Item className="todo-form-actions">
         <Button htmlType="submit" type="primary">Add</Button>

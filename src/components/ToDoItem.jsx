@@ -1,8 +1,12 @@
 import React from 'react';
 import { Button, Checkbox } from 'antd';
+import { DeleteOutlined } from '@ant-design/icons/lib/icons';
+import { useState } from 'react/cjs/react.development';
+
 
 export const ToDoItem = (props) => {
   const { item, onCheck, onRemove } = props;
+  const [className, setClassName] = useState("");
   const onRemoveItem = (e) => {
     e.preventDefault();
 
@@ -14,16 +18,22 @@ export const ToDoItem = (props) => {
   const onCheckItem = () => {
     if (onCheck) {
       onCheck(item.id);
+      if(className === ""){
+        setClassName("checked");
+      }
+      else{
+        setClassName("");
+      }
     }
   }
 
   return (
-    <li className="todo-item" key={item.id}>
-      <Checkbox 
+    <><li className="todo-item" key={item.id}>
+      <Checkbox className={className}
         checked={item.checked}
         onChange={onCheckItem}
-      >{item.name}</Checkbox>
-      <Button onClick={onRemoveItem}>Remove</Button>
-    </li>
+      >{item.title}</Checkbox>
+      <Button onClick={onRemoveItem} style={{ background: "#ff181d"}}><DeleteOutlined/></Button>
+    </li><p class="desc">{item.description}</p></>
   )
 }

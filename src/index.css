@@ -18,10 +18,12 @@
 
 .todo-item {
   list-style: none;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
+  padding-top: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-top: 1px solid #00000027;
 }
 
 .todo-form {
@@ -37,4 +39,26 @@
 }
 .todo-form-actions {
   flex: 0!important;
+}
+.desc{
+  color: #00000095;
+  text-align: left; 
+}
+#checkcount{
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  right: 18%;
+  top: 4%;
+}
+.rmbutton{
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  right: 3%;
+  top: 3%;
+}
+.checked{
+  color: purple;
+  text-decoration: line-through;
 }
